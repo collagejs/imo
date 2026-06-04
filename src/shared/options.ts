@@ -6,12 +6,12 @@ import type { ImoUiOptions } from "../types.js";
 /**
  * Identifier used to tag IMO options.
  */
-const imPostingOptionsId = "collagejs-im-post-options";
+export const imPostingOptionsId = "collagejs-im-post-options";
 
 /**
  * Identifier used to tag IMO UI options.
  */
-const imoUiOptionsId = "collagejs-imo-ui-options";
+export const imoUiOptionsId = "collagejs-imo-ui-options";
 
 /**
  * Default import map posting options.
@@ -89,7 +89,7 @@ export async function getInitialImoUiOptions(options?: ImoUiOptions): Promise<Re
             .addObject(defaultImoUiOptions)
             .addJson<{}>(() => Promise.resolve(optionsScript!.textContent))
             .when(() => {
-                optionsScript = document.querySelector(`script[type="application/json"][${imoUiOptionsId}]`);
+                optionsScript = document.querySelector(`script[type="application/json"][id="${imoUiOptionsId}"]`);
                 return !!optionsScript?.textContent;
             })
             .addObject<{}>(options ?? {})

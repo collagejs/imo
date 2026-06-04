@@ -5,6 +5,7 @@ import type { ImoUiFactoryOptions } from "./types.js";
 import { getInitialImoUiOptions } from "./shared/options.js";
 import { initImoUiOptions } from "./lib/state/imoUiOptions";
 import type { CorePiece } from "@collagejs/core";
+export { imPostingOptionsId, imoUiOptionsId } from "./shared/options.js";
 
 const cssMount = cssMountFactory('piece');
 
