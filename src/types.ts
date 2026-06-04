@@ -89,3 +89,13 @@ export type ImoUiFactoryOptions = {
  * to mount it.
  */
 export declare function imoUiFactory(options?: ImoUiFactoryOptions): Promise<CorePiece<{}>>;
+
+/**
+ * Identifier used to tag IMO options.
+ */
+export declare const imPostingOptionsId: string;
+
+/**
+ * Identifier used to tag IMO UI options.
+ */
+export declare const imoUiOptionsId: string;
