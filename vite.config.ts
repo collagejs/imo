@@ -9,6 +9,7 @@ export default defineConfig({
     plugins: [svelte(),
     collageJsCssPlugin({
         serverPort: 4444,
+        projectId: 'cjs-imo',
         entryPoints: ['src/index.ts', 'src/imo-ui.ts'],
         assetFileNames: 'assets/[name][extname]',
     }),
