@@ -41,7 +41,8 @@
     "build": "vite build && pwsh post-build.ps1 && publint",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
-    "test": "vitest"
+    "test": "vitest",
+    "test:ci": "npx playwright install chromium && vitest"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
