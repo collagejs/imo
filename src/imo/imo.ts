@@ -14,7 +14,8 @@ that are mentioned in the resulting import map, plus the page's origin if applic
 */
 import { validate } from "@collagejs/importmap";
 import { skFinalImportMap, skImportMap, skOverrides, skViteDevServers } from "../shared/storage-keys.js";
-import type { ImoOverride, ImPostingOptions, MergedImportMap, ValidatedImportMap } from "../private-types.js";
+import type { ImoOverride, MergedImportMap, ValidatedImportMap } from "../private-types.js";
+import type { ImPostingOptions } from "../types.js";
 import pRetry from "p-retry";
 import { ensureImoController, getStoredDevServers, isViteServer } from "../shared/common.js";
 import { readImPostingOptions } from "../shared/options.js";

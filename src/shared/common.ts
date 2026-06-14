@@ -1,5 +1,5 @@
 import { ImoController } from "../ImoController.js";
-import type { ImPostingOptions } from "../private-types.js";
+import type { ImPostingOptions } from "../types.js";
 import { skViteDevServers } from "./storage-keys.js";
 
 export const eventImoLogsUpdated = 'imo-logs-updated';
