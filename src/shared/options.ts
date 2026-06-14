@@ -1,7 +1,7 @@
 import wjConfig from "wj-config";
-import type { ImPostingOptions, RequiredImoUiOptions } from "../private-types.js";
+import type { RequiredImoUiOptions } from "../private-types.js";
 import { skImoUiOptions } from "./storage-keys.js";
-import type { ImoUiOptions } from "../types.js";
+import type { ImoUiOptions, ImPostingOptions } from "../types.js";
 
 /**
  * Identifier used to tag IMO options.
