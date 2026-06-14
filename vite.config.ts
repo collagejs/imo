@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
-import { collageJsCssPlugin } from '@collagejs/vite-css';
+import { cjsCssPlugin } from '@collagejs/vite-css';
 import { viteIife } from './vite-iife.js';
 import { viteTest } from './vite-test.js';
 
 // https://vite.dev/config/
 export default defineConfig({
     plugins: [svelte(),
-    collageJsCssPlugin({
+    cjsCssPlugin({
         serverPort: 4444,
         projectId: 'cjs-imo',
         entryPoints: ['src/index.ts', 'src/imo-ui.ts'],
@@ -19,10 +19,10 @@ export default defineConfig({
     }),
     ],
     build: {
-        minify: true,
+        minify: false,
         rollupOptions: {
             output: {
-                entryFileNames: '[name].min.js',
+                entryFileNames: '[name].js',
             }
         }
     }
