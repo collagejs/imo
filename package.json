@@ -4,7 +4,14 @@
   "version": "0.1.0",
   "type": "module",
   "description": "Performs import map entry overriding for ES modules, and posts the resulting import map to Vite development servers.",
-  "keywords": ["collagejs", "import-map", "import-maps", "micro-frontend", "micro-frontends", "vite"],
+  "keywords": [
+    "collagejs",
+    "import-map",
+    "import-maps",
+    "micro-frontend",
+    "micro-frontends",
+    "vite"
+  ],
   "author": {
     "email": "webJose@gmail.com",
     "name": "José Pablo Ramírez Vargas"
@@ -58,10 +65,10 @@
     "vitest": "^4.1.7"
   },
   "dependencies": {
-    "@collagejs/core": "^0.3.0",
+    "@collagejs/core": "^0.x || ^1.x",
     "@collagejs/importmap": "^0.2.0",
     "@collagejs/svelte": "^0.2.0",
-    "@collagejs/vite-css": "^0.1.0",
+    "@collagejs/vite-css": "^0.x || ^1.x",
     "lucide-svelte": "^0.562.0",
     "p-retry": "^8.0.0",
     "svelte-persisted-state": "^1.2.0",
