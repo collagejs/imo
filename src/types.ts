@@ -92,16 +92,6 @@ export type ImoUiFactoryOptions = {
 export declare function imoUiFactory(options?: ImoUiFactoryOptions): Promise<CorePiece<{}>>;
 
 /**
- * Identifier used to tag IMO options.
- */
-export declare const imPostingOptionsId: string;
-
-/**
- * Identifier used to tag IMO UI options.
- */
-export declare const imoUiOptionsId: string;
-
-/**
  * Supported `p-retry` options.
  */
 export type RetryOptions = Omit<PRetryOptions, 'onFailedAttempt' | 'shouldRetry' | 'shouldConsumeRetry' | 'signal'>;
