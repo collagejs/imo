@@ -1,8 +1,8 @@
 Write-Host "Starting post-build script..." -ForegroundColor Green
 
 # Copy the types file to the dist folder
-$srcFiles = @("./src/types.ts", "./src/global.d.ts")
-$destFiles = @("index.d.ts", "global.d.ts")
+$srcFiles = @("./src/types.ts", "./src/global.d.ts", "./src/const-types.ts")
+$destFiles = @("index.d.ts", "global.d.ts", "const.d.ts")
 $destFolder = "dist"
 if (!(Test-Path -Path $destFolder)) {
     New-Item -ItemType Directory -Path $destFolder | Out-Null

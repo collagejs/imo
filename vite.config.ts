@@ -10,7 +10,7 @@ export default defineConfig({
     cjsCssPlugin({
         serverPort: 4444,
         projectId: 'cjs-imo',
-        entryPoints: ['src/index.ts', 'src/imo-ui.ts'],
+        entryPoints: ['src/index.ts', 'src/const.js', 'src/imo-ui.ts'],
         assetFileNames: 'assets/[name][extname]',
     }),
     viteTest(),
