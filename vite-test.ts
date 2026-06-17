@@ -27,7 +27,7 @@ export function viteTest(): Plugin {
                     },
                     {
                         tag: 'script',
-                        attrs: { type: 'text/javascript' },
+                        attrs: { type: 'application/javascript' },
                         children: await getImoScript(),
                     }
                 ],
