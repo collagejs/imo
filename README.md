@@ -17,6 +17,8 @@ This is what's different:
 - This one provides a modern and very fast user interface (powered by Svelte).
 - This one supports the `@collagejs/vite-aim` Vite plug-in by posting the resulting import map back to Vite development servers for bare module identifier resolution while in serve mode (`npm run dev`).
 
+![UI Sample](/docs/ui-sample.png)
+
 ## How To Use
 
 When doing *CollageJS* piece (micro-frontend) projects, we don't have to do much.  We simply tell the `@collagejs/vite-im` Vite plug-in to add it.  The plug-in will inject the map-overriding script and the user interface module (which itself is a *CollageJS* piece).  See that plug-in's documentation for more information.
