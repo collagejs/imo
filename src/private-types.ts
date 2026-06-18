@@ -1,5 +1,5 @@
 import { type ImportMap } from "@collagejs/importmap";
-import type { GlassSettings, ImoUiOptions } from "./types.js";
+import type { GlassSettings, ImoUiFactoryOptions, ImoUiOptions } from "./types.js";
 
 /**
  * Version of `ImoUiOptions` where every setting is a required setting.
@@ -10,6 +10,15 @@ export type RequiredImoUiOptions = Required<Omit<ImoUiOptions, 'glass'>> & {
      */
     glass: Required<GlassSettings>;
 }
+/**
+ * Version of `ImoUiFactoryOptions` where every setting is a required setting.
+ */
+export type RequiredImoUiFactoryOptions = Required<Omit<ImoUiFactoryOptions, 'ui'>> & {
+    /**
+     * User interface options.
+     */
+    'ui': RequiredImoUiOptions;
+};
 /**
  * An entry in `@collagejs/imo`'s log.
  */

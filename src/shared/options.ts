@@ -1,7 +1,7 @@
 import wjConfig from "wj-config";
-import type { RequiredImoUiOptions } from "../private-types.js";
+import type { RequiredImoUiFactoryOptions, RequiredImoUiOptions } from "../private-types.js";
 import { skImoUiOptions } from "./storage-keys.js";
-import type { ImoUiOptions, ImPostingOptions } from "../types.js";
+import type { ImoUiFactoryOptions, ImPostingOptions } from "../types.js";
 
 /**
  * Identifier used to tag IMO options.
@@ -28,19 +28,23 @@ const defaultImPostingOptions: Required<ImPostingOptions> = {
 };
 
 /**
- * Default IMO UI options.
+ * Default IMO UI factory options.
  */
-export const defaultImoUiOptions: RequiredImoUiOptions = {
-    theme: 'system',
-    position: 'bottom-right',
-    language: 'en',
-    localStorageTrigger: 'imo-ui',
-    glass: {
-        enabled: true,
-        blur: 15,
-        opacity: 0.1,
-        saturation: 110,
-    },
+export const defaultImoUiFactoryOptions: RequiredImoUiFactoryOptions = {
+    base: '',
+    shadowDom: true,
+    ui: {
+        theme: 'system',
+        position: 'bottom-right',
+        language: 'en',
+        localStorageTrigger: 'imo-ui',
+        glass: {
+            enabled: true,
+            blur: 15,
+            opacity: 0.1,
+            saturation: 110,
+        },
+    }
 };
 
 /**
@@ -79,14 +83,20 @@ export async function readImPostingOptions(): Promise<Required<ImPostingOptions>
  *
  * The script is set by the `@collagejs/vite-im` Vite plug-in; the parameter carries the values given to the IMO UI
  * factory function.
+ *
+ * ### IMPORTANT
+ *
+ * These values are considered *initial* because, as the user interface is used and tweaked by the user/developer,
+ * settings are stored in local storage.  Once a copy of the settings exist in local storage, these options are
+ * effectively superseded.
  * @param options Optional set of options that are merged last (and therefore has the highest priority).
  * @returns The final initial set of options for the IMO user interface.
  */
-export async function getInitialImoUiOptions(options?: ImoUiOptions): Promise<RequiredImoUiOptions> {
+export async function getInitialImoUiFactoryOptions(options?: ImoUiFactoryOptions): Promise<RequiredImoUiFactoryOptions> {
     let optionsScript: HTMLElement | null;
     try {
         return await wjConfig()
-            .addObject(defaultImoUiOptions)
+            .addObject(defaultImoUiFactoryOptions)
             .addJson<{}>(() => Promise.resolve(optionsScript!.textContent))
             .when(() => {
                 optionsScript = document.querySelector(`script[type="application/json"][id="${imoUiOptionsId}"]`);
@@ -97,7 +107,7 @@ export async function getInitialImoUiOptions(options?: ImoUiOptions): Promise<Re
     }
     catch (e) {
         console.warn(`Failed to parse default IMO settings: ${(e as Error).message}`);
-        return structuredClone(defaultImoUiOptions);
+        return structuredClone(defaultImoUiFactoryOptions);
     }
 }
 
