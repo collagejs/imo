@@ -1,7 +1,7 @@
 {
   "name": "@collagejs/imo",
   "private": false,
-  "version": "0.2.1",
+  "version": "0.2.2",
   "type": "module",
   "description": "Performs import map entry overriding for ES modules, and posts the resulting import map to Vite development servers.",
   "keywords": [
