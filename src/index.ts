@@ -6,7 +6,7 @@ import { getInitialImoUiFactoryOptions } from "./shared/options.js";
 import { initImoUiOptions } from "./lib/state/imoUiOptions";
 import type { CorePiece } from "@collagejs/core";
 
-const cssMount = cssMountFactory('piece');
+const cssMount = cssMountFactory('index');
 
 export async function imoUiFactory(options?: ImoUiFactoryOptions): Promise<CorePiece<{}>> {
     const initialOptions = await getInitialImoUiFactoryOptions(options);
