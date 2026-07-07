@@ -21,7 +21,7 @@ This is what's different:
 
 ## How To Use
 
-When doing *CollageJS* piece (micro-frontend) projects, we don't have to do much.  We simply tell the `@collagejs/vite-im` Vite plug-in to add it.  The plug-in will inject the map-overriding script and the user interface module (which itself is a *CollageJS* piece).  See that plug-in's documentation for more information.
+When doing *CollageJS* piece (micro-frontend) projects, we don't have to do much.  We simply tell the `@collagejs/vite-im` Vite plug-in to add it (and by default, it has been told).  The plug-in will inject the map-overriding script and the user interface module (which itself is a *CollageJS* piece).  See that plug-in's documentation for more information.
 
 ### Using On Its Own
 
@@ -57,7 +57,7 @@ In your HTML page, after all overridable import maps, inject the script with a `
     <script type="application/javascript" src="https://cdn.jsdelivr.net/npm/@collagejs/imo@latest/dist/imo.min.js"></script>
     <script type="application/json" id="collagejs-imo-ui-options">
         {
-            "base": "https://cdn.jsdelivr.net/npm/@collagejs/imo@latest"
+            "base": "https://cdn.jsdelivr.net/npm/@collagejs/imo@latest/dist/"
         }
     </script>
 </head>
@@ -190,7 +190,7 @@ type ImoUiFactoryOptions = {
 #### Options
 
 - `base`: Base path used to locate the user interface's CSS.
-- `shadowDom`: Set to `true` to have the piece mount in Shadow DOM.
+- `shadow`: Set to `true` to have the piece mount in Shadow DOM.
 - `ui.position`: The position of the dev-mode user interface being mounted.
 - `ui.language`: The language used in the user interface.
 - `ui.theme`: The user interface theme.

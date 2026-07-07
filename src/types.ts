@@ -77,7 +77,7 @@ export type ImoUiFactoryOptions = {
     /**
      * Whether to mount the *CollageJS* piece inside a shadow DOM root.
      */
-    shadowDom?: boolean;
+    shadow?: boolean;
     /**
      * User interface options.
      */
