@@ -36,7 +36,7 @@ This is a 2-part project.  The NPM package contains:
 
 - `dist/imo.min.js`:  The IIFE script.
 - `dist/imo-ui.js`:  The *CollageJS* piece (MFE) script.
-- `dist/assets/cjcss(cjs-imo)index.css`:  The piece's CSS.
+- `dist/assets/cjcss(cjs-imo)src.css`:  The piece's CSS.
 
 #### Referencing from CDN
 

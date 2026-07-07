@@ -43,7 +43,7 @@
       "import": "./dist/imo.min.js"
     },
     "./css": {
-      "import": "./dist/assets/cjcss(cjs-imo)index.css"
+      "import": "./dist/assets/cjcss(cjs-imo)src.css"
     }
   },
   "types": "./dist/index.d.ts",
