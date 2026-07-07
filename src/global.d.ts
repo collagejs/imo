@@ -13,8 +13,9 @@ declare global {
     interface UiController {
         /**
          * Mounts the IMO *CollageJS* piece in the document, assuming it wasn't already mounted.
+         * @param shadow Whether to use a shadow DOM for the IMO UI.
          */
-        mount(): Promise<void>;
+        mount(shadow?: boolean): Promise<void>;
         /**
          * Unmounts the IMO *CollageJS* piece from the document, assuming it is currently mounted.
          */

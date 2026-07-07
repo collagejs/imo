@@ -32,7 +32,7 @@ const defaultImPostingOptions: Required<ImPostingOptions> = {
  */
 export const defaultImoUiFactoryOptions: RequiredImoUiFactoryOptions = {
     base: '',
-    shadowDom: true,
+    shadow: true,
     ui: {
         theme: 'system',
         position: 'bottom-right',
@@ -41,7 +41,7 @@ export const defaultImoUiFactoryOptions: RequiredImoUiFactoryOptions = {
         glass: {
             enabled: true,
             blur: 15,
-            opacity: 0.1,
+            opacity: 0.2,
             saturation: 110,
         },
     }

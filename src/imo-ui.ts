@@ -9,5 +9,5 @@ ensureImoController();
 CollageJs.Imo.ui = new UiController();
 const imoUiOptions = await getInitialImoUiFactoryOptions();
 if (imoUiOptions.ui.localStorageTrigger && localStorage.getItem(imoUiOptions.ui.localStorageTrigger) === 'true') {
-    CollageJs.Imo.ui.mount();
+    CollageJs.Imo.ui.mount(imoUiOptions.shadow);
 }
