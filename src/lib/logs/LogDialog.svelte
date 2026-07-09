@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Newspaper, ChevronLeft, ChevronRight, RefreshCcw } from 'lucide-svelte';
+    import { Newspaper, ChevronLeft, ChevronRight } from '@lucide/svelte';
     import Button from '../Button.svelte';
     import Dialog from '../Dialog.svelte';
     import type { ImoLogEntry } from '../../private-types.js';
@@ -65,7 +65,7 @@
     </div>
     {#if imoLogs.current.length}
         <p class="log-summary">
-            Excecution Start: <span>
+            Execution Start: <span>
                 {new Date(logSet[0].timestamp).toLocaleString()}
             </span>
             ({logSet.length} log entr{logSet.length === 1 ? 'y' : 'ies'})

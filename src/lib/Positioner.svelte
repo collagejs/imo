@@ -10,7 +10,7 @@
         ArrowUpRight,
         ArrowDownLeft,
         ArrowDownRight,
-    } from 'lucide-svelte';
+    } from '@lucide/svelte';
     import type { Position } from '../types.js';
     import { imoUiOptions } from './state/imoUiOptions';
     import type { HTMLAttributes } from 'svelte/elements';

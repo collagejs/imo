@@ -7,7 +7,7 @@
         Delete,
         Pencil,
         X,
-    } from "lucide-svelte";
+    } from "@lucide/svelte";
     import IconButton from "../IconButton.svelte";
     import Table from "../Table.svelte";
     import {

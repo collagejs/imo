@@ -1,7 +1,7 @@
 <script lang="ts">
     import { type Snippet } from "svelte";
     import type { HTMLDialogAttributes } from "svelte/elements";
-    import { X } from "lucide-svelte";
+    import { X } from "@lucide/svelte";
     import Button from "./Button.svelte";
     import logo64 from "@collagejs/core/logo/64";
     import { effectiveTheme } from "./state/effectiveTheme.svelte.js";
