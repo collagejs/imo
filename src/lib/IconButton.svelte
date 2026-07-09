@@ -1,7 +1,7 @@
 <script lang="ts">
     import Button from './Button.svelte';
     import type { ComponentProps } from 'svelte';
-    import type { Icon as LucideIcon } from 'lucide-svelte';
+    import type { Icon as LucideIcon } from '@lucide/svelte';
 
     type Props = ComponentProps<typeof Button> & {
         icon: typeof LucideIcon;

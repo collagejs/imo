@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { ComponentProps } from 'svelte';
     import IconButton from '../IconButton.svelte';
-    import { Settings } from 'lucide-svelte';
+    import { Settings } from '@lucide/svelte';
     import OptionsDialog from './OptionsDialog.svelte';
 
     let {

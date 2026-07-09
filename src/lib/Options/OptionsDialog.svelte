@@ -9,7 +9,7 @@
         MoveUpRight,
         Settings,
         SunIcon,
-    } from 'lucide-svelte';
+    } from '@lucide/svelte';
     import Dialog from '../Dialog.svelte';
     import { imoUiOptions } from '../state/imoUiOptions';
     import Button from '../Button.svelte';

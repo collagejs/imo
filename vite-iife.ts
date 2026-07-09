@@ -1,5 +1,5 @@
 import { build, createLogger, type ConfigEnv, type LogLevel, type Plugin } from "vite";
-import type { RollupOutput } from "rollup";
+import type { RolldownOutput } from "rolldown";
 
 export type ViteIifeOptions = {
     entryPoints: string | string[];
@@ -15,7 +15,6 @@ function log(level: LogLevel, message: string) {
 }
 
 let result: Awaited<ReturnType<typeof build>>;
-// let avoidIifeEmission = false;
 let viteEnv: ConfigEnv;
 
 export function viteIife(options: ViteIifeOptions): Plugin {
@@ -43,7 +42,7 @@ export function viteIife(options: ViteIifeOptions): Plugin {
                     write: false,
                 },
             });
-            const emitChunks = (output: RollupOutput) => {
+            const emitChunks = (output: RolldownOutput) => {
                 for (const chunkOrAsset of Object.values(output.output)) {
                     if (chunkOrAsset.type === 'asset') {
                         this.emitFile({
@@ -69,7 +68,7 @@ export function viteIife(options: ViteIifeOptions): Plugin {
                 }
             }
             else if ((result as any).output) {
-                emitChunks(result as RollupOutput);
+                emitChunks(result as RolldownOutput);
             }
         },
     };

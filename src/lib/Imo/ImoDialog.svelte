@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Bookmark, BookOpenText, BookOpenTextIcon, PcCase, RefreshCcw } from 'lucide-svelte';
+    import { Bookmark, BookOpenText, PcCase, RefreshCcw } from '@lucide/svelte';
     import Dialog from '../Dialog.svelte';
     import Tabs from '../Tabs/Tabs.svelte';
     import TabPanel from '../Tabs/TabPanel.svelte';

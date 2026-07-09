@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Delete } from 'lucide-svelte';
+    import { Delete } from '@lucide/svelte';
     import type { ViteServerInfo } from '../../private-types.js';
     import Table from '../Table.svelte';
     import { viteDevServers } from '../state/videDevServers.js';

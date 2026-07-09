@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { ComponentProps } from 'svelte';
     import IconButton from '../IconButton.svelte';
-    import { Newspaper } from 'lucide-svelte';
+    import { Newspaper } from '@lucide/svelte';
     import LogDialog from './LogDialog.svelte';
 
     let { ...restProps }: Omit<ComponentProps<typeof IconButton>, 'icon'> = $props();

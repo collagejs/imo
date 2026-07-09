@@ -52,7 +52,7 @@
     "dev": "vite",
     "build": "vite build && pwsh post-build.ps1 && publint",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
+    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json --noEmit",
     "test": "vitest",
     "test:ci": "npx playwright install chromium && vitest"
   },
@@ -75,7 +75,7 @@
     "@collagejs/importmap": "^0.2.0",
     "@collagejs/svelte": "0.x || 1.x",
     "@collagejs/vite-css": "0.x || 1.x",
-    "lucide-svelte": "^0.562.0",
+    "@lucide/svelte": "^1.24.0",
     "p-retry": "^8.0.0",
     "svelte-persisted-state": "^1.2.0",
     "svelte-toggle": "^4.0.1",
