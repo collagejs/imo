@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { X, Check, Loader } from '@lucide/svelte';
+    import { X, Check } from '@lucide/svelte';
     import Spinner from './Spinner.svelte';
 
     export type ActionResult = {
@@ -14,16 +14,16 @@
         results: (ActionResult | undefined)[];
     }
 
-    let { servers, action, done = $bindable(false), results = $bindable() }: Props = $props();
+    let { servers, action, done = $bindable(), results }: Props = $props();
 
     let title = $derived(action === 'post' ? 'Sending Import Map to' : 'Deleting Import Map from');
-    // svelte-ignore state_referenced_locally
-    results = new Array(servers.length).fill(undefined);
     let text = $derived(action === 'post' ? 'Sending' : 'Deleting');
-    // svelte-ignore state_referenced_locally
-    Promise.all(servers.map((s) => s.actionPromise)).then(() => {
-        done = true;
+    // Calculation of "done":
+    $effect.pre(() => {
+        done = results.every((result) => result !== undefined);
     });
+    // Done in an effect to satisfy Svelte tools, but the list of servers or the action promise should not change
+    // during the lifetime of this component.
     $effect.pre(() => {
         servers.forEach(async (server, index) => {
             server.actionPromise.then((result) => {

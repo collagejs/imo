@@ -10,11 +10,21 @@
     } from "./ServerActionProgress.svelte";
     import TimerMessage from "./TimerMessage.svelte";
 
+    const viteServers = [
+        ...getInvolvedViteServers(
+            getStoredDiscoveredDevServers().keys(),
+        )[0],
+    ];
+    const servers = viteServers.map((origin) => {
+        return {
+            origin,
+            actionPromise: deleteImFromServer(origin),
+        };
+    });
+    let deletionResults = $state<(ActionResult | undefined)[]>(
+        new Array(servers.length).fill(undefined),
+    );
     let imDeleteDone = $state(false);
-    let deletionResults = $state<(ActionResult | undefined)[]>([]);
-    let servers = $state<
-        { origin: HttpOrigin; actionPromise: Promise<ActionResult> }[]
-    >([]);
     const failedDeletions = $derived(
         imDeleteDone
             ? deletionResults.reduce(
@@ -63,21 +73,6 @@
         }
     }
 
-    // Effect that triggers IM deletion requests.
-    $effect(() => {
-        const viteServers = [
-            ...getInvolvedViteServers(
-                getStoredDiscoveredDevServers().keys(),
-            )[0],
-        ];
-        servers = viteServers.map((origin) => {
-            return {
-                origin,
-                actionPromise: deleteImFromServer(origin),
-            };
-        });
-    });
-
     // Effect that triggers reload or the timed message.
     $effect(() => {
         if (imDeleteDone && failedDeletions.length === 0) {
@@ -92,7 +87,7 @@
     {servers}
     action="delete"
     bind:done={imDeleteDone}
-    bind:results={deletionResults}
+    results={deletionResults}
 />
 {#if showTimedMessage}
     <TimerMessage
