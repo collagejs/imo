@@ -75,9 +75,11 @@ export function getStoredDevServers(): Map<string, boolean> {
     return new Map<string, boolean>(JSON.parse(localStorage.getItem(skViteDevServers) || '[]'));
 }
 /**
- * Reads from session storage and returns the list of discovered Vite development servers.  The list is stored as an
- * array of server origins.
- * @returns A set object containing the discovered Vite dev servers, or an empty set object.
+ * Reads from session storage and returns the list of potential Vite servers that have been discovered.
+ *
+ * The list is stored in storage as an array of `[origin, boolean]` pairs, where the Boolean value indicates
+ * whether the server is truly a Vite server or not by this package's detection logic.
+ * @returns A map object containing the discovered Vite dev servers, or an empty map object.
  */
 export function getStoredDiscoveredDevServers() {
     return new Map<HttpOrigin, boolean>(JSON.parse(sessionStorage.getItem(skDiscoveredViteServers) || '[]'));
@@ -109,4 +111,18 @@ export function getInvolvedViteServers(foundViteServers: Iterable<HttpOrigin>) {
         return false;
     }) : []);
     return [involvedViteServers, excludedViteServers] as const;
+}
+
+/**
+ * Tests whether a value represents an HTTP origin.
+ * @param value Value to test.
+ * @returns `true` if the value represents an HTTP origin, or `false` otherwise.
+ */
+export function isHttpOrigin(value: string): value is HttpOrigin {
+    try {
+        const url = new URL(value);
+        return (url.protocol === 'http:' || url.protocol === 'https:') && value === url.origin;
+    } catch {
+        return false;
+    }
 }

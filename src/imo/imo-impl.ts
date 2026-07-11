@@ -17,7 +17,7 @@ import { skDiscoveredViteServers, skFinalImportMap, skImportMap, skOverrides, sk
 import type { HttpOrigin, ImoOverride, MergedImportMap, ValidatedImportMap } from "../private-types.js";
 import type { ImPostingOptions } from "../types.js";
 import pRetry from "p-retry";
-import { ensureImoController, getInvolvedViteServers, getStoredDevServers, isViteServer } from "../shared/common.js";
+import { ensureImoController, getInvolvedViteServers, getStoredDevServers, isHttpOrigin, isViteServer } from "../shared/common.js";
 import { readImPostingOptions } from "../shared/options.js";
 import { ensureGlobalCollageJs } from "@collagejs/core";
 import { Logger } from "./Logger.js";
@@ -166,19 +166,6 @@ function injectImportMap(importMap: MergedImportMap) {
         document.head.appendChild(script);
     }
     logger.info("Injected final import map into the document.");
-}
-/**
- * Tests whether a value represents an HTTP origin.
- * @param value Value to test.
- * @returns `true` if the value represents an HTTP origin, or `false` otherwise.
- */
-function isHttpOrigin(value: string): value is HttpOrigin {
-    try {
-        const url = new URL(value);
-        return (url.protocol === 'http:' || url.protocol === 'https:') && value === url.origin;
-    } catch {
-        return false;
-    }
 }
 /**
  * Posts the provided import map to all Vite servers that are allowed to receive it.
