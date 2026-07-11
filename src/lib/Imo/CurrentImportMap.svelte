@@ -57,17 +57,17 @@
     ];
 
     function acceptOverrideChange(row: (typeof data)[number]) {
-        row.override.replacement = overrideInputs[row.id]?.value || "";
+        row.override.replacement = overrideInputs[row.id]?.value.trim() || "";
         row.override.active = true;
         row.editing = false;
-        overrideInputs[row.id].value = "";
+        overrideInputs[row.id].value = row.override.replacement || "";
         overrideInputs[row.id].history.push(row.override.replacement);
     }
 
     function startEdit(row: (typeof data)[number]) {
         row.editing = true;
         row.override.active = !!row.override.replacement || row.override.active;
-        overrideInputs[row.id].value = "";
+        overrideInputs[row.id].value = row.override.replacement || "";
     }
 </script>
 

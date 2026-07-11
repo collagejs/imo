@@ -129,3 +129,7 @@ export type OverrideData = ImoEntry & {
      */
     editing: boolean;
 };
+/**
+ * Defines a string type that ensures the string is a valid HTTP or HTTPS origin.
+ */
+export type HttpOrigin = string & { __brand: 'HttpOrigin' };

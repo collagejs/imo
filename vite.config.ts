@@ -12,6 +12,8 @@ export default defineConfig({
         projectId: 'cjs-imo',
         entryPoints: ['src/index.ts', 'src/const.ts', 'src/imo-ui.ts'],
         assetFileNames: 'assets/[name][extname]',
+    }, {
+        importMapTimeout: 200,
     }),
     viteTest(),
     viteIife({

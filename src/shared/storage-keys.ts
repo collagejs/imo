@@ -60,6 +60,12 @@ export const skOverrideEntryHistoryPrefix = storageKey("oeh:");
 export const skViteDevServers = storageKey("vds");
 
 /**
+ * Storage key for discovered Vite development servers.  This is stored in session storage and is
+ * currently only used to request import map deletion from Vite servers before applying overrides.
+ */
+export const skDiscoveredViteServers = storageKey("disc-vds");
+
+/**
  * Deletes the specified data entry from storage.
  * @param entry Data entry to delete.
  * @param name Optional name for the entry (if applicable).
@@ -96,6 +102,7 @@ export function deleteDataEntry(entry: DataEntry, name?: string): void {
             break;
         case 'vite-servers':
             localStorage.removeItem(skViteDevServers);
+            sessionStorage.removeItem(skDiscoveredViteServers);
             break;
         default:
             throw new Error(`Unknown data entry type: ${entry}`);

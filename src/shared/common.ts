@@ -1,6 +1,7 @@
 import { ImoController } from "../ImoController.js";
+import type { HttpOrigin } from "../private-types.js";
 import type { ImPostingOptions } from "../types.js";
-import { skViteDevServers } from "./storage-keys.js";
+import { skDiscoveredViteServers, skViteDevServers } from "./storage-keys.js";
 
 export const eventImoLogsUpdated = 'imo-logs-updated';
 
@@ -73,7 +74,14 @@ export function isViteServer(url: URL, allowedType: Required<ImPostingOptions>['
 export function getStoredDevServers(): Map<string, boolean> {
     return new Map<string, boolean>(JSON.parse(localStorage.getItem(skViteDevServers) || '[]'));
 }
-
+/**
+ * Reads from session storage and returns the list of discovered Vite development servers.  The list is stored as an
+ * array of server origins.
+ * @returns A set object containing the discovered Vite dev servers, or an empty set object.
+ */
+export function getStoredDiscoveredDevServers() {
+    return new Map<HttpOrigin, boolean>(JSON.parse(sessionStorage.getItem(skDiscoveredViteServers) || '[]'));
+}
 /**
  * Ensures that the `CollageJs.Imo` controller is initialized and available.  If it doesn't exist, it is created.
  */
@@ -82,4 +90,23 @@ export function ensureImoController(): void {
         // @ts-expect-error TS2540 - Imo property is declared as read-only.
         CollageJs.Imo = new ImoController();
     }
+}
+
+/**
+ * Gets the subset of Vite servers that are allowed to receive the import map.
+ * @param foundViteServers Vite servers spotted in the resultant import map.
+ * @returns A tuple with 2 sets:  The first set contains the involved Vite servers that are allowed to receive the
+ * import map, and the second set contains the excluded Vite servers that are not allowed to receive the import map.
+ */
+export function getInvolvedViteServers(foundViteServers: Iterable<HttpOrigin>) {
+    const viteServers = getStoredDevServers();
+    const excludedViteServers = new Set<HttpOrigin>();
+    const involvedViteServers = new Set(foundViteServers ? Array.from(foundViteServers).filter((origin) => {
+        if (viteServers.get(origin)) {
+            return true;
+        }
+        excludedViteServers.add(origin);
+        return false;
+    }) : []);
+    return [involvedViteServers, excludedViteServers] as const;
 }
