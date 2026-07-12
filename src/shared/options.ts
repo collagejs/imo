@@ -31,7 +31,6 @@ const defaultImPostingOptions: Required<ImPostingOptions> = {
  * Default IMO UI factory options.
  */
 export const defaultImoUiFactoryOptions: RequiredImoUiFactoryOptions = {
-    base: '',
     shadow: true,
     ui: {
         theme: 'system',
