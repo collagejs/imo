@@ -69,12 +69,6 @@ export type ImoUiOptions = {
  */
 export type ImoUiFactoryOptions = {
     /**
-     * Base URL for CSS assets.  This value overrides Vite's base if specified.
-     *
-     * **TIP**:  Use it when serving the *CollageJS* piece from a different origin than the main page.
-     */
-    base?: string;
-    /**
      * Whether to mount the *CollageJS* piece inside a shadow DOM root.
      */
     shadow?: boolean;
