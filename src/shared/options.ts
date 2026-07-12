@@ -32,11 +32,11 @@ const defaultImPostingOptions: Required<ImPostingOptions> = {
  */
 export const defaultImoUiFactoryOptions: RequiredImoUiFactoryOptions = {
     shadow: true,
+    localStorageTrigger: 'imo-ui',
     ui: {
         theme: 'system',
         position: 'bottom-right',
         language: 'en',
-        localStorageTrigger: 'imo-ui',
         glass: {
             enabled: true,
             blur: 15,

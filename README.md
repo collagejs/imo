@@ -170,13 +170,12 @@ Function that creates a *CollageJS* piece that can be mounted in a web document'
 async function imoUiFactory(options?: ImoUiFactoryOptions): Promise<CorePiece<{}>>;
 
 type ImoUiFactoryOptions = {
-    base?: string;
     shadowDom?: boolean;
+    localStorageTrigger?: string | undefined;
     ui?: {
         position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         language?: string | undefined;
         theme?: 'light' | 'dark' | 'system';
-        localStorageTrigger?: string | undefined;
         glass?: {
             enabled?: boolean;
             opacity?: number;
@@ -189,12 +188,11 @@ type ImoUiFactoryOptions = {
 
 #### Options
 
-- `base`: Base path used to locate the user interface's CSS.
 - `shadow`: Set to `true` to have the piece mount in Shadow DOM.
+- `localStorageTrigger`: The name of the key that is defined in local storage to trigger the appearance of the user interface.
 - `ui.position`: The position of the dev-mode user interface being mounted.
 - `ui.language`: The language used in the user interface.
 - `ui.theme`: The user interface theme.
-- `ui.localStorageTrigger`: The name of the key that is defined in local storage to trigger the appearance of the user interface.
 - `ui.glass.enabled`: Enables the glass effects in the user interface.
 - `ui.glass.opacity`: Controls the opacity used to create the glass effect.
 - `ui.glass.blur`: Controls the blur used to create the glass effect.
