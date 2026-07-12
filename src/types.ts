@@ -55,11 +55,6 @@ export type ImoUiOptions = {
      */
     theme?: Theme;
     /**
-     * Desired local storage key name used to automatically mount the IMO user interface.
-     * @default 'imo-ui'
-     */
-    localStorageTrigger?: string | undefined;
-    /**
      * Settings for the glass effect in the `@collagejs/imo` UI.
      */
     glass?: GlassSettings;
@@ -72,6 +67,11 @@ export type ImoUiFactoryOptions = {
      * Whether to mount the *CollageJS* piece inside a shadow DOM root.
      */
     shadow?: boolean;
+    /**
+     * Desired local storage key name used to automatically mount the IMO user interface.
+     * @default 'imo-ui'
+     */
+    localStorageTrigger?: string | undefined;
     /**
      * User interface options.
      */
